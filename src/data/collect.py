@@ -11,5 +11,3 @@ def create_nbadataframe(season_list):
         nba_games = nba_games._append(season_df)
     return nba_games 
 
-season_list = ["2020-21", "2021-22", "2022-23", "2023-24"]  
-create_nbadataframe(season_list)
