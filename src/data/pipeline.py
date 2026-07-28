@@ -12,7 +12,8 @@ def training_dataset(nba_games):
     for game_id in game_ids:
 
         current_game = nba_games[nba_games["GAME_ID"] == game_id]
-        first_row = current_game.iloc[0]
+        first_row = current_game.iloc[0] 
+
         current_date = first_row["GAME_DATE"]
         matchup = first_row["MATCHUP"]
 
@@ -32,6 +33,9 @@ def training_dataset(nba_games):
             current_date,
             nba_games
         )
+
+        home_row = current_game[current_game["TEAM_ABBREVIATION"] == home_team].iloc[0] 
+        features["outcome"] = 1 if home_row["WL"] == "W" else 0 
 
         games_dataset.append(features)
 
