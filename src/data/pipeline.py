@@ -39,7 +39,14 @@ def training_dataset(nba_games):
 
         games_dataset.append(features)
 
-    return pd.DataFrame(games_dataset)
+    return pd.DataFrame(games_dataset) 
+
+if __name__ == "__main__":
+    dataset = training_dataset(master_dataframe)
+    dataset.to_csv("src/data/nbagames_dataframe.csv", index=False)
+
+    print(dataset.head())
+    print(f"Created dataset with {len(dataset)} games.")
     
 
         
